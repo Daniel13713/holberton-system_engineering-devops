@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#This script use for loop print strings
+for i in *
+do
+	echo "$i"
+done
+
