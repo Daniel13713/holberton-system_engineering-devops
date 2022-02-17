@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #This script use while loop print strings
-i=0
 while ((i<10)); do
 	echo "Best School"
 	let i++
