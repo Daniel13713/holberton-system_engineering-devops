@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#This script use for loop print strings
+END=10
+for ((i=1;i<=END;i++)); do
+	echo "Best School"
+done
+

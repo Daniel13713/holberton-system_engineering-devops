@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#This script use until loop print strings
+let end=10 i=0
+until [ $i -ge $end ]
+do
+	echo "Best School"
+	((i++))
+done
+
