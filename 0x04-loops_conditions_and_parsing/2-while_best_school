@@ -2,6 +2,6 @@
 #This script use while loop print strings
 while ((i<10)); do
 	echo "Best School"
-	let i++
+	((i++))
 done
 
