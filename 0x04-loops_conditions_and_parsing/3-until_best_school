@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #This script use until loop print strings
-until [ "$i" -ge 10 ]
+until [[ "$i" -ge 10 ]]
 do
 	echo "Best School"
 	((i++))
