@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Using trap command to handling signals
+pid=$(pgrep -f 7-highlander)
+kill -9 "$pid"
+
