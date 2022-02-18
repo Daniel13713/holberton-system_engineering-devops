@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Using pkill command to stop a script process
+pkill -f 4-to_infinity_and_beyond
+
