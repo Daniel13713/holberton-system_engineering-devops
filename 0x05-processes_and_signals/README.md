@@ -21,3 +21,8 @@
 
 - Pkill Command:
 	- [Use](https://www.howtoforge.com/linux-pkill-command/)
+
+- SIGNALS:
+	- [signals with kill on terminal](https://www.linuxjournal.com/content/bash-trap-command)
+	- [Use trap command](https://www.youtube.com/watch?v=0btsvoSt76M&ab_channel=theurbanpenguin)
+	- [video](https://www.youtube.com/watch?v=tF0Qau7zcsw&ab_channel=ProgrammingKnowledge)
