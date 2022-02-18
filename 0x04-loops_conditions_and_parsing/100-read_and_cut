@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#This script use for loop print strings
+command="$(cat /etc/passwd)"
+for i in $command;
+do
+	echo "$i" | cut -f 1,3,6 -d":"
+done
+
