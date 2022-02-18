@@ -22,3 +22,6 @@
 - [Manengmane files](https://linuxize.com/post/bash-check-if-file-exists/#:~:text=In%20Bash%2C%20you%20can%20use,the%20type%20of%20the%20file.&text=If%20you%20want%20your%20script,available%20on%20all%20POSIX%20shells.)
 - [Negate a is statement](https://www.baeldung.com/linux/bash-script-negate-if)
 - [Read files line by line](https://linuxhint.com/bash-while-loop-examples/)
+- [Internal variables](https://tldp.org/LDP/abs/html/internalvariables.html)
+- [IFS: INTERNAL FIELD SEPARATOR AND UNDERTAND /ETC/PASSWD ](https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/)
+
