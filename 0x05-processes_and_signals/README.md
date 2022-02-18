@@ -14,3 +14,6 @@
 - psgrep command
 	- [How to use it?](https://linuxize.com/post/pgrep-command-in-linux/)
 
+- About time in linux:
+	- [sleep](https://www.cyberciti.biz/faq/what-does-the-sleep-command-do-in-linux/)
+	- [date and time](https://www.cyberciti.biz/faq/howto-set-date-time-from-linux-command-prompt/)
