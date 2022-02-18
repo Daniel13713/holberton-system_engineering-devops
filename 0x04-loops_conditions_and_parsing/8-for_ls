@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #This script use for loop print strings
-for i in *;
+some="$(ls)"
+for i in $some;
 do
 	echo "$i" | cut -f2 -d-
 done
