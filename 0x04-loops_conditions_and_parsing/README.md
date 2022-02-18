@@ -25,3 +25,9 @@
 - [Internal variables](https://tldp.org/LDP/abs/html/internalvariables.html)
 - [IFS: INTERNAL FIELD SEPARATOR AND UNDERTAND /ETC/PASSWD ](https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/)
 
+## Servers
+- [Format of the apache access log File](https://www.sentinelone.com/blog/detailed-introduction-apache-access-log/)
+	- [LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\""]
+- [awk command](https://www.geeksforgeeks.org/awk-command-unixlinux-examples/)
+- [parsing apache acces log file](https://www.the-art-of-web.com/system/logs/)
+
