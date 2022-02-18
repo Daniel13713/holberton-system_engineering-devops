@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Using trap command to handling signals (Must be run by sudo user)
+pid="$$"
+file=/var/run/myscript.pid
+echo "$pid" > $file
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+	trap 'echo "I hate the kill command"; rm $file' SIGTERM
+	trap 'echo "Y U no love me?!"' SIGINT
+	trap 'rm $file' SIGQUIT
+done
+
