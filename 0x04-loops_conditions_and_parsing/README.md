@@ -18,3 +18,7 @@
 
 ### For Loop:
 	- [print sequence](https://stackoverflow.com/questions/169511/how-do-i-iterate-over-a-range-of-numbers-defined-by-variables-in-bash)
+
+- [Manengmane files](https://linuxize.com/post/bash-check-if-file-exists/#:~:text=In%20Bash%2C%20you%20can%20use,the%20type%20of%20the%20file.&text=If%20you%20want%20your%20script,available%20on%20all%20POSIX%20shells.)
+- [Negate a is statement](https://www.baeldung.com/linux/bash-script-negate-if)
+- [Read files line by line](https://linuxhint.com/bash-while-loop-examples/)
