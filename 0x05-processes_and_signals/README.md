@@ -7,5 +7,10 @@
 - [Linux signal](https://www.thegeekstuff.com/2012/03/linux-signals-fundamentals/)
 
 - [Special variables](https://www.tutorialspoint.com/unix/unix-special-variables.htm)
-- [ps Command, show all running porcesses](https://www.cyberciti.biz/faq/show-all-running-processes-in-linux/)
+- PS COMMAND:
+	- [ps Command, show all running porcesses](https://www.cyberciti.biz/faq/show-all-running-processes-in-linux/)
+	- [mORE RUNNING](https://linuxize.com/post/ps-command-in-linux/)
+	- [Flasg](https://phoenixnap.com/kb/list-processes-linux)
+- psgrep command
+	- [How to use it?](https://linuxize.com/post/pgrep-command-in-linux/)
 
