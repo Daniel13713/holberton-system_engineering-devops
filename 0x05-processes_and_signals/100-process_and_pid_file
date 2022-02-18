@@ -6,7 +6,6 @@ echo "$pid" > $file
 while true
 do
 	echo "To infinity and beyond"
-	sleep 2
 	trap 'echo "I hate the kill command"; rm $file; kill -9 $pid' SIGTERM
 	trap 'echo "Y U no love me?!"' SIGINT
 	trap 'rm $file; kill -9 $pid' SIGQUIT
