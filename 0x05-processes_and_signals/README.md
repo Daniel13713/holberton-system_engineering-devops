@@ -26,3 +26,8 @@
 	- [signals with kill on terminal](https://www.linuxjournal.com/content/bash-trap-command)
 	- [Use trap command](https://www.youtube.com/watch?v=0btsvoSt76M&ab_channel=theurbanpenguin)
 	- [video](https://www.youtube.com/watch?v=tF0Qau7zcsw&ab_channel=ProgrammingKnowledge)
+
+- [/etc/init.d dict](https://www.ghacks.net/2009/04/04/get-to-know-linux-the-etcinitd-directory/)
+- [& and &&](https://bashitout.com/2013/05/18/Ampersands-on-the-command-line.html)
+- [Daemon](https://es.wikipedia.org/wiki/Daemon_(inform%C3%A1tica))
+- []
