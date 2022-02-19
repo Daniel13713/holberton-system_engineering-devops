@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 #write indefinitely on a file
-file=/tmp/my_process
-message="I am alive!"
+file="/tmp/my_process"
 while true
 do
-	echo "$message" >> $file
+	echo "I am alive!" >> $file
 	sleep 2
 done
 
