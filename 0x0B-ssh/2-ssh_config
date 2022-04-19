@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Config file
+Host school
+    HostName 98.98.98.98
+    User ubuntu
