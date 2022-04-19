@@ -1,4 +1,4 @@
-# Configuration Management 
+# Configuration Management...
 
 ## Cocepts
 - [CM](https://en.wikipedia.org/wiki/Configuration_management)
