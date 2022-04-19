@@ -1,0 +1,6 @@
+#nstall a package with a version and using source
+package { 'puppet-lint':
+  ensure   => '2.5.0',
+  provider => 'gem',
+  source   => 'https://rubygems.org',
+}
