@@ -3,28 +3,11 @@
 sudo apt update
 sudo apt install nginx -y
 
-#create index directory
-#sudo mkdir -p /var/www/du.tech/html
-
 #create index file
 sudo touch /var/www/html/index.html
-sudo echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
 sudo sed -i "/server_name _;/ a rewrite ^/redirect_me https://flask.palletsprojects.com/en/2.0.x/ permanent;" /etc/nginx/sites-available/default
-
-#unlinkf default file
-#sudo unlink /etc/nginx/sites-enabled/default
-
-#create config file
-#echo "server {
-#       listen 80 default_server;
-#       index index.html;
-#       server_name du.tech;
-#       root /var/www/du.tech/html
-#       location /redirect_me {
-#               return 301 https://flask.palletsprojects.com/en/2.0.x/$request_uri;
-#       }
-#}" > /etc/nginx/conf.d/du.tech.conf
 
 #restar the server
 sudo service nginx restart
