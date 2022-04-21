@@ -6,5 +6,5 @@ sudo chmod -R 755 /var/www
 sudo touch /var/www/html/index.html
 sudo chmod 777 /var/www/html/index.html
 sudo echo "Hello World!" > /var/www/html/index.html
-sudo systemctl restart nginx
+sudo service nginx restart
 
