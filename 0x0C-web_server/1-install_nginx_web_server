@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Install nginx web server
+sudo apt update
+sudo apt install nginx -y
+sudo chmod -R 755 /var/www
+sudo touch /var/www/html/index.html
+sudo chmod 777 /var/www/html/index.html
+sudo echo "Hello World!" > /var/www/html/index.html
+sudo systemctl restart nginx
+
