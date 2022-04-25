@@ -1,39 +1,4 @@
 #!/usr/bin/env bash
-######################### install docker ######################################
-#Uninstall first
-sudo apt-get remove docker docker-engine docker.io containerd runc
-#Update the apt package index and install packages to allow apt to use a repository over HTTPS:
-sudo apt-get update
-sudo apt-get install ca-certificates curl gnupg lsb-release -y
-#Add Docker’s official GPG key:
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-#Use the following command to set up the stable repository
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-#nstall Docker Engine Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io -y
-#Update and upgrade
-sudo apt-get update && sudo apt-get upgrade
-
-########################## run apache ##########################################
-#start docker
-sudo service docker start
-# Install iamge apache
-sudo docker pull httpd
-#Workspace
-mkdir -p ~/apache-server
-cd ~/apache-server || return 1
-echo "Hello Holberton" > index.html
-#create dockerfile
-echo "#Instructions for Dockerfile
-FROM httpd
-COPY index.html /var/www/html/
-COPY index.html /usr/local/apache2/htdocs/
-EXPOSE 80" > Dockerfile
-#biulding the docker image
-sudo docker build -t holbertonschool/265-0 .
-#run apache container
-sudo docker run -p 8080:80 -d -it holbertonschool/265-0
+#START APACHE
+sudo service apache2 start
 
