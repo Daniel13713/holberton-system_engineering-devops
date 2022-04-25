@@ -1,30 +1,28 @@
-# Web stack Debugging
+# Web Debugging
 
 
-        <h2>Concepts</h2>
+<h2>Concepts</h2>
+<div class="panel panel-default">
+   <div class="panel-body">
+   <p>
+   <em>For this project, students are expected to look at these concepts:</em>
+   </p>
 
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <p>
-        <em>For this project, students are expected to look at these concepts:</em>
-      </p>
-
-      <ul>
-          <li>
-            <a href="/concepts/33">Network basics</a>
-          </li>
-          <li>
-            <a href="/concepts/65">Docker</a>
-          </li>
-          <li>
-            <a href="/concepts/68">Web stack debugging</a>
-          </li>
-      </ul>
-    </div>
+   <ul>
+   <li>
+   	<a href="/concepts/33">Network basics</a>
+   	</li>
+  	 <li>
+   		<a href="/concepts/65">Docker</a>
+  	 </li>
+  	 <li>
+  		 <a href="/concepts/68">Web stack debugging</a>
+  	 </li>
+   </ul>
   </div>
+</div>
 
-
-      <div class="well clean" id="project-description">
+<div class="well clean" id="project-description">
   <p><img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/265/uWLzjc8.jpg" alt="" style="" /></p>
 
 <h2>Background Context</h2>
