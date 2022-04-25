@@ -15,7 +15,7 @@ echo \
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 #Update and upgrade
-sudo apt-get update && sudp apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade
 
 ########################## run apache ##########################################
 #start docker
@@ -24,7 +24,7 @@ sudo service docker start
 sudo docker pull httpd
 #Workspace
 mkdir -p ~/apache-server
-cd ~/apache-server
+cd ~/apache-server || return 1
 echo "Hello Holberton" > index.html
 #create dockerfile
 echo "#Instructions for Dockerfile
