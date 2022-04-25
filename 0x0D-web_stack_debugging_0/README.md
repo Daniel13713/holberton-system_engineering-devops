@@ -10,13 +10,13 @@
 
    <ul>
    <li>
-   	<a href="/concepts/33">Network basics</a>
+   	<a href="https://intranet.hbtn.io/concepts/33">Network basics</a>
    	</li>
   	 <li>
-   		<a href="/concepts/65">Docker</a>
+   		<a href="https://intranet.hbtn.io/concepts/65">Docker</a>
   	 </li>
   	 <li>
-  		 <a href="/concepts/68">Web stack debugging</a>
+  		 <a href="https://intranet.hbtn.io/concepts/68">Web stack debugging</a>
   	 </li>
    </ul>
   </div>
@@ -84,8 +84,8 @@ sylvain@ubuntu:~$
 <p>For this project you will be given a container which you can use to solve the task. <strong>If</strong> you would like to have Docker so that you can experiment with it and/or solve this problem locally, you can install it on your machine, your Ubuntu 14.04 VM, or your Ubuntu 16.04 VM if you upgraded.</p>
 
 <ul>
-<li><a href="/rltoken/k_pbInP8sVHkPWS-7bUqDQ" title="Mac OS" target="_blank">Mac OS</a></li>
-<li><a href="/rltoken/AYZe8xA3hfdHoDlXMJuNpQ" title="Windows" target="_blank">Windows</a></li>
+<li><a href="https://docs.docker.com/desktop/mac/install/" title="Mac OS" target="_blank">Mac OS</a></li>
+<li><a href="https://docs.docker.com/desktop/windows/install/" title="Windows" target="_blank">Windows</a></li>
 <li><a href="/rltoken/ynOBcBBvuYZPm9lSHFNcoQ" title="Ubuntu 14.04" target="_blank">Ubuntu 14.04</a> (Note that Docker for Ubuntu 14 is deprecated and you will have to make some adjustments to the instructions when installing)</li>
 <li><a href="/rltoken/tTuEaxo5gzKq23ZvgPODnA" title="Ubuntu 16.04" target="_blank">Ubuntu 16.04</a></li>
 </ul>
