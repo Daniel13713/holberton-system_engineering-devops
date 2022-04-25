@@ -35,5 +35,5 @@ EXPOSE 80" > Dockerfile
 #biulding the docker image
 sudo docker build -t holbertonschool/265-0 .
 #run apache container
-#sudo docker run -p 8080:80 -d -it holbertonschool/265-0
+sudo docker run -p 8080:80 -d -it holbertonschool/265-0
 
