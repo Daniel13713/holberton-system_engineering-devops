@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#start nginx to fix server error
+sudo service nginx start
+
