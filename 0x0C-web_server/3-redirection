@@ -1,14 +1,41 @@
 #!/usr/bin/env bash
-#Install nginx web server
-sudo apt update
-sudo apt install nginx -y
 
-#create index file
-sudo touch /var/www/html/index.html
-echo "Hello World!" > /var/www/html/index.html
+#update repos
+sudo apt-get update -y
+sudo apt-get upgrade -y
 
-sudo sed -i "/server_name _;/ a rewrite ^/redirect_me https://flask.palletsprojects.com/en/2.0.x/ permanent;" /etc/nginx/sites-available/default
+#install nginx
+sudo apt-get install nginx -y
 
-#restar the server
+#create folder with for each domain
+sudo mkdir -p /var/www/du.tech/html
+
+#unlinks the default file
+if [[ -f /etc/nginx/sites-enabled/default ]];
+then
+        unlink /etc/nginx/sites-enabled/default
+fi
+#permission
+#sudo chmod -R 755 /var/www
+
+#create config file
+echo "server {
+        listen 80 default_server;
+        index index.html;
+        server_name _;
+        root /var/www/du.tech/html;
+        location /redirect_me {
+      return 301 https://www.youtube.com/watch?v=hjpF8ukSrvk&ab_channel=PinkFloyd-Topic\$request_uri;
+      }
+        }
+" > /etc/nginx/conf.d/du.tech.conf
+
+#creates the index file
+echo "Hello World from du.tech" > /var/www/du.tech/html/index.html;
+
+#links to avalible sites
+#sudo ln -s /etc/nginx/sites-available/du.tech /etc/nginx/sites-enabled/default
+
+#restart nginx
 sudo service nginx restart
 
