@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#update repos
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+#install nginx
+sudo apt-get install nginx -y
+
+#create folder with for each domain
+sudo mkdir -p /var/www/du.tech/html
+
+#unlinks the default file
+unlink /etc/nginx/sites-enabled/default
+#permission
+#sudo chmod -R 755 /var/www
+
+#create config file
+echo "server {
+        listen 80 default_server;
+        index index.html;
+        server_name _;
+        root /var/www/du.tech/html;
+        location /redirect_me {
+      return 301 https://www.youtube.com/watch?v=hjpF8ukSrvk&ab_channel=PinkFloyd-Topic\$request_uri;
+      }
+      	error_page 404 /du_404.html;
+	location = /du_404.html {
+		root /var/www/du.tech/html;
+		internal;
+	}	
+}
+" > /etc/nginx/conf.d/du.tech.conf
+
+#creates the index file
+echo "Hello World from du.tech" > /var/www/du.tech/html/index.html;
+
+#error page 404
+echo "Ceci n'est pas une page" > /var/www/du.tech/html/du_404.html;
+
+#restart nginx
+sudo service nginx restart
+
