@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+#Install and configure HAproxy on your lb-01 server.
+
+#update repo and machine
+sudo apt-get update -y
+
+#install haproxy
+pkg=haproxy
+status="$(dpkg-query -W --showformat='${db:Status-Status}' "$pkg" 2>&1)"
+output=$?
+if [ ! "$output" = 0 ] || [ ! "$status" = installed ];
+then
+        sudo apt install "$pkg" -y
+else
+	sudo apt-get remove "$pkg" -y
+	sudo apt-get remove "$pkg"* --purge -y
+	sudo apt-get autoremove -y
+        sudo apt install $pkg -y
+fi
+
+#save default configuration in another file
+mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
+
+#custom my own haproxy.cfg
+echo "#custom haproxy config
+
+defaults
+   mode http
+   timeout connect  5000
+   timeout client  10000
+   timeout server  10000
+
+########################## Load balancing on layer 4 ###############################3
+frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+   default_backend http_back
+
+backend http_back
+   balance roundrobin
+   server 3811-web-01 34.138.238.195:80 check
+   server 3811-web-02 54.82.92.255:80 check
+
+######################### load balancing for layer 7 ##############################
+#frontend http_front
+#   bind *:80
+#   stats uri /haproxy?stats
+#   acl url_blog path_beg /blog
+#   use_backend blog_back if url_blog
+#   default_backend http_back
+#
+#backend http_back
+#   balance roundrobin
+#   server 3811-web-01 34.138.238.195:80 check
+#   server 3811-web-02 54.82.92.255:80 check" > /etc/haproxy/haproxy.cfg
+
+#restart haproxy service
+sudo service haproxy restart
+
