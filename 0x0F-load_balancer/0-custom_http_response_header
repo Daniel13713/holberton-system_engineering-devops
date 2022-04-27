@@ -21,7 +21,7 @@ unlink /etc/nginx/sites-enabled/default
 echo "server {
         listen 80 default_server;
         index index.html;
-        server_name _;
+        #server_name _;
         root /var/www/du.tech/html;
         location /redirect_me {
       return 301 https://www.youtube.com/watch?v=hjpF8ukSrvk&ab_channel=PinkFloyd-Topic\$request_uri;
