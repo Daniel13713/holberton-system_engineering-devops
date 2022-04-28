@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#A good practice is that one should never be logged in the root user
+if [[ "$1" ]];
+then
+	sudo su --login "$1" --shell /bin/bash --command "whoami"
+else
+	echo "Use: $0 user"
+fi
+
