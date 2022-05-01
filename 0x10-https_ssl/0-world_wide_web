@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#Configure your domain zone
+
+config_domain (){
+	domain="$1"
+	sub_domain="$2"
+	dig "$sub_domain.$domain" | grep -A1 'ANSWER SECTION:' | awk -v sub_domain="$sub_domain" 'NR==2 {print "The subdomain " sub_domain " is a " $4 " record and points to " $5}'
+}
+subdomains=("www" "lb-01" "web-01" "web-02")
+if [[ "$#" == 2 ]];
+then
+	config_domain "$1" "$2"
+elif [[ "$#" == 1 ]];
+then
+	for subdomain in ${subdomains[*]};
+	do
+		config_domain "$1" "$subdomain"
+	done
+else
+	echo "usage: $0 domain subdomain(optional)"
+fi
+
