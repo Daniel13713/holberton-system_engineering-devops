@@ -1,29 +1,33 @@
 #custom haproxy config
 
+global
+	ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA>        ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
+	ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets
+
 defaults
-   mode http
-   timeout connect  5000
-   timeout client  10000
-   timeout server  10000
+	mode http
+	timeout connect  5000
+	timeout client  10000
+	timeout server  10000
 
 ########################## Load balancing on layer 4 ###############################3
 frontend http_front
-   bind *:80
-   stats uri /haproxy?stats
+	bind *:80
+	stats uri /haproxy?stats
 
-   # This is our new config that listens on port 443 for SSL connections
-   bind *:443 ssl crt /etc/ssl/riodu.tech.pem
+ 	# This is our new config that listens on port 443 for SSL connections
+	bind *:443 ssl crt /etc/ssl/riodu.tech.pem
 
-   # Test URI to see if its a letsencrypt request
-   acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-   use_backend ssl-letsencrypt-backend if letsencrypt-acl
-   default_backend http_back
+ 	# Test URI to see if its a letsencrypt request
+	acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+	use_backend ssl-letsencrypt-backend if letsencrypt-acl
+	default_backend http_back
 
 backend http_back
-   balance roundrobin
-   server 3811-web-01 34.138.238.195:80 check
-   server 3811-web-02 54.82.92.255:80 check
+	balance roundrobin
+	server 3811-web-01 34.138.238.195:80 check
+	server 3811-web-02 54.82.92.255:80 check
 
 backend ssl-letsencrypt-backend
-   server letsencrypt 127.0.0.1:8888
+	server letsencrypt 127.0.0.1:8888
 
