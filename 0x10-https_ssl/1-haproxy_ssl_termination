@@ -1,0 +1,29 @@
+#custom haproxy config
+
+defaults
+   mode http
+   timeout connect  5000
+   timeout client  10000
+   timeout server  10000
+
+########################## Load balancing on layer 4 ###############################3
+frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+
+   # This is our new config that listens on port 443 for SSL connections
+   bind *:443 ssl crt /etc/ssl/riodu.tech.pem
+
+   # Test URI to see if its a letsencrypt request
+   acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+   use_backend ssl-letsencrypt-backend if letsencrypt-acl
+   default_backend http_back
+
+backend http_back
+   balance roundrobin
+   server 3811-web-01 34.138.238.195:80 check
+   server 3811-web-02 54.82.92.255:80 check
+
+backend ssl-letsencrypt-backend
+   server letsencrypt 127.0.0.1:8888
+
