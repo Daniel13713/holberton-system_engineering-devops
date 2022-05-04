@@ -1,0 +1,28 @@
+et Up a Firewall with UFW
+
+#install ufw
+sudo apt-get update -y
+#install haproxy
+pkg=ufw
+status="$(dpkg-query -W --showformat='${db:Status-Status}' "$pkg" 2>&1)"
+output=$?
+if [ ! "$output" = 0 ] || [ ! "$status" = installed ];
+then
+        sudo apt install "$pkg" -y
+else
+        sudo ufw --force disable
+        sudo ufw --force reset
+fi
+
+#Setting up default policies
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+#rules to allow incoming connections
+sudo ufw allow ssh #port 22
+sudo ufw allow http #port 80
+sudo ufw allow https #port 443
+
+#enable firewall
+sudo ufw --force enable
+
