@@ -19,10 +19,11 @@
 <p><strong>Read or watch</strong>:</p>
 
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Firewall_%28computing%29" title="What is a firewall" target="_blank">What is a firewall</a> </li>
+<l><a href="https://en.wikipedia.org/wiki/Firewall_%28computing%29" title="What is a firewall" target="_blank">What is a firewall</a> </li>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04" title="Guide ufw" target="_blank">Guide ufw Digital Ocean</a> </li>
 <li><a href="https://serverfault.com/questions/790143/ufw-enable-requires-y-prompt-how-to-automate-with-bash-script" title="Problems --force" target="_blank">Problems --force</a> </li>
 </ul>
+<l><a href="https://serverfault.com/questions/238563/can-i-use-ufw-to-setup-a-port-forward" title="What is a firewall" target="_blank">Redicrect ports with ufw</a> </li>
 
 <h2>More Info</h2>
 
