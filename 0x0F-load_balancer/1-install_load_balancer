@@ -21,6 +21,9 @@ fi
 #save default configuration in another file
 mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
 
+#Enables HAproxy to be managed via an init scrip
+echo "ENABLED=1" >> /etc/default/haproxy
+
 #custom my own haproxy.cfg
 echo "#custom haproxy config
 
@@ -52,7 +55,7 @@ backend http_back
 #backend http_back
 #   balance roundrobin
 #   server 3811-web-01 34.138.238.195:80 check
-#   server 3811-web-02 54.82.92.255:80 check" > /etc/haproxy/haproxy.cfg
+#   server 3811-web-02 54.82.92.255:80 check" >> /etc/haproxy/haproxy.cfg
 
 #restart haproxy service
 sudo service haproxy restart

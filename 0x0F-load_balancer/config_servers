@@ -1,0 +1,56 @@
+
+s
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+#install nginx
+pkg=nginx
+status="$(dpkg-query -W --showformat='${db:Status-Status}' "$pkg" 2>&1)"
+output=$?
+if [ ! "$output" = 0 ] || [ ! "$status" = installed ];
+then
+        sudo apt install "$pkg" -y
+else
+        sudo apt-get remove "$pkg" -y
+        sudo apt-get remove "$pkg"* --purge -y
+        sudo apt-get autoremove -y
+        sudo apt install $pkg -y
+fi
+
+#create folder with for each domain
+sudo mkdir -p /var/www/riodu.tech/html
+
+#unlinks the default file
+#if [[ -f /etc/nginx/sites-enabled/default ]];
+#then
+unlink /etc/nginx/sites-enabled/default
+#fi
+#permission
+#sudo chmod -R 755 /var/www
+
+#create config file
+echo "server {
+        listen 80 default_server;
+        index index.html;
+        #server_name riodu.tech;
+        root /var/www/riodu.tech/html;
+        location /redirect_me {
+      return 301 https://www.youtube.com/watch?v=hjpF8ukSrvk&ab_channel=PinkFloyd-Topic\$request_uri;
+      }
+        error_page 404 /du_404.html;
+        location = /du_404.html {
+                root /var/www/riodu.tech/html;
+                internal;
+        }
+        add_header X-Served-By $HOSTNAME;
+}
+" > /etc/nginx/conf.d/riodu.tech.conf
+
+#creates the index file
+echo "Hello World from du.tech" > /var/www/riodu.tech/html/index.html;
+
+#error page 404
+echo "Ceci n'est pas une page" > /var/www/riodu.tech/html/du_404.html;
+
+#restart nginx
+sudo service nginx restart
