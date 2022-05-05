@@ -1,0 +1,64 @@
+#!/us6/bin/env bash
+
+#Configuration mysql
+### change this values to ip of the VPS
+cat /etc/mysql/mysql.conf.d/mysqld.cnf | grep bind-address
+### Uncomment or add this line (remember that the number must be unique and cannot match any other server-id in your replication group)
+cat /etc/mysql/mysql.conf.d/mysqld.cnf | grep server-id
+#echo "server-id = 1" >> /etc/mysql/mysql.conf.d/mysqld.cnf
+
+#On mysql console (create user)
+#SHOW VARIABLES LIKE 'validate_password%';
+#SET GLOBAL validate_password_policy=LOW;
+#CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
+#GRANT REPLICATION CLIENT ON *.* to user@host;
+
+sudo service mysql restart
+
+#On mysql (create database and table with permission to user)
+CREATE DATABASE tyrell_corp;
+CREATE TABLE tryell_corp.nexus6(
+  id INT,
+  name VARCHAR(255)
+);
+##give privigeles to a user
+#GRANT PRIVILEGE ON database.table TO 'username'@'host';
+#GRANT SELECT ON tyrell_corp.nexus6 TO 'holberton_user'@'localhost';
+
+##Replica_user
+CREATE USER 'replica_user'@'%' IDENTIFIED BY 'replica1375';
+#Permissions to replicate the primary MYSQL server
+GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%' IDENTIFIED BY 'replica1375';
+#Shoe users and privileges
+SELECT user,Repl_slave_priv FROM mysql.user;
+
+### Master-Slave ###
+###-----  configuration of the the master database -----###
+#USE tyrell_corp;
+#FLUSH TABLES WITH READ LOCK;
+#SHOW MASTER STATUS;
+sudo mysqldump -u root -p --opt tyrell_corp > tyrell_corp.sql
+#UNLOCK TABLES;
+#QUIT
+
+###-----  configuration of the the slave database -----###
+scp webserver1:~/tyrell_corp.sql webserver2:~/
+scp webserver1:~/tyrell_corp.sql . ; scp tyrell_corp.sql webserver2:~/
+sudo mysql -u root -p newdatabase < newdatabase.sql
+CHANGE MASTER TO 
+  MASTER_HOST='34.138.238.195',
+  MASTER_USER='replica_user',
+  MASTER_PASSWORD='replica1375',
+  MASTER_LOG_FILE='mysql-bin.000057',
+  MASTER_LOG_POS=154;
+START SLAVE;
+SHOW SLAVE STATUS\G;
+
+
+
+
+
+
+
+
+
