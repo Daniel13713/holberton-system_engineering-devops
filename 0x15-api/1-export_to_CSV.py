@@ -18,9 +18,12 @@ if __name__ == "__main__":
         username = data_users["username"]
         tasks_done = 0
         tasks_all = len(data_tasks)
-        tasks_title = ""
+        data = ""
         for record in data_tasks:
             completed = record["completed"]
             title = record["title"]
-            print('"{}","{}","{}","{}"'.format(
-                id, username, completed, title))
+            data += '"{}","{}","{}","{}"\n'.format(
+                id, username, completed, title)
+
+        with open("USER_ID.csv", mode="a+", encoding="utf-8") as file:
+            file.write(data)
