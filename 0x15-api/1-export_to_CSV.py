@@ -24,6 +24,6 @@ if __name__ == "__main__":
             title = record["title"]
             data += '"{}","{}","{}","{}"\n'.format(
                 id, username, completed, title)
-
-        with open("USER_ID.csv", mode="a+", encoding="utf-8") as file:
+        textFile = "{}.csv".format(id)
+        with open(textFile, mode="w+", encoding="utf-8") as file:
             file.write(data)
