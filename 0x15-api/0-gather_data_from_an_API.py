@@ -20,7 +20,7 @@ with requests.session() as session:
     for record in data_tasks:
         if record["completed"]:
             tasks_done += 1
-            tasks_title += "\t{}\n".format(record["title"])
-            
+            tasks_title += "\t {}\n".format(record["title"])
+
     print("Employee {0} is done with tasks({1}/{2}):\n{3}".format(name_user,
           tasks_done, tasks_all, tasks_title), end="")
