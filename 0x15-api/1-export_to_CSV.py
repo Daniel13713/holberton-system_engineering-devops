@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """Gather data from an API"""
 
+import csv
 import requests
 from sys import argv
-import csv
+
 
 if __name__ == "__main__":
     id = argv[1]
@@ -17,7 +18,7 @@ if __name__ == "__main__":
         data = {}
         list_data = []
         for record in data_tasks:
-            data["USER_ID"] = data_users["id"]
+            data["USER_ID"] = id
             data["USERNAME"] = str(data_users["username"])
             data["TASK_COMPLETED_STATUS"] = record["completed"]
             data["TASK_TITLE"] = record["title"]
@@ -25,12 +26,11 @@ if __name__ == "__main__":
 
     textFile = "{}.csv".format(id)
     with open(textFile, mode="w+") as csvfile:
-        writer = csv.DictWriter(
+        writer = csv.writer(
             csvfile,
-            fieldnames=data.keys(),
             quoting=csv.QUOTE_ALL)
         # Put header of the data in the first row
         # writer.writeheader()
         for data_dict in list_data:
             # Add each dictionary
-            writer.writerow(data_dict)
+            writer.writerow(data_dict.values())
