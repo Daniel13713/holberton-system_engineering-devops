@@ -25,10 +25,10 @@ if __name__ == "__main__":
             data += """
                 {{"task": "{0}", "completed": {1}, "username": "{2}"}}
                     """.format(
-                                title,
-                                completed,
-                                username
-                            )
+                title,
+                completed,
+                username
+            )
             if data_tasks[tasks_all - 1] != record:
                 data += ", "
         data += "]}"
