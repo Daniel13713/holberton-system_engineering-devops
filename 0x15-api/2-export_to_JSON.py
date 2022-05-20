@@ -19,7 +19,7 @@ if __name__ == "__main__":
         for record in tasks:
             completed = record["completed"]
             title = record["title"]
-            username = users["id"]
+            username = users["username"]
             data = {
                 "task": title,
                 "completed": completed,
