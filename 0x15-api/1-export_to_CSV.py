@@ -19,7 +19,7 @@ if __name__ == "__main__":
         list_data = []
         for record in data_tasks:
             data["USER_ID"] = id
-            data["USERNAME"] = str(data_users["username"])
+            data["USERNAME"] = data_users["username"]
             data["TASK_COMPLETED_STATUS"] = record["completed"]
             data["TASK_TITLE"] = record["title"]
             list_data.append(data.copy())
