@@ -14,8 +14,8 @@ def top_ten(subreddit):
         https://www.reddit.com/r/{subreddit}/{listing}.json?limit={limit}&t={timeframe}
         """.format(
         subreddit=subreddit,
-        listing="top",
-        limit=100,
+        listing="hot",
+        limit=10,
         timeframe="month"
     )
     try:
@@ -29,7 +29,7 @@ def top_ten(subreddit):
                 return
 
             data = res.json()
-            for post in data["data"]["children"][0:10]:
+            for post in data["data"]["children"]:
                 print(post["data"]["title"])
 
     except Exception as err:
