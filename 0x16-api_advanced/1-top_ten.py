@@ -22,9 +22,11 @@ def top_ten(subreddit):
         with requests.session() as session:
             res = session.get(
                 URL, headers={
-                    'User-agent': 'yourbot'}).json()
-
-            for post in res["data"]["children"][0:10]:
+                    'User-agent': 'yourbot'})
+            data = res.json()
+            # check if a valid subreddit
+            data["data"]["children"][0]["data"]
+            for post in data["data"]["children"][0:10]:
                 print(post["data"]["title"])
 
     except Exception as err:
