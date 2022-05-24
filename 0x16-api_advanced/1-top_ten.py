@@ -23,9 +23,12 @@ def top_ten(subreddit):
             res = session.get(
                 URL, headers={
                     'User-agent': 'yourbot'})
+            # Check is subreddit exits
+            if res.status_code > 299 and res.status_code < 500:
+                print("None")
+                return
+
             data = res.json()
-            # check if a valid subreddit
-            data["data"]["children"][0]["data"]
             for post in data["data"]["children"][0:10]:
                 print(post["data"]["title"])
 
