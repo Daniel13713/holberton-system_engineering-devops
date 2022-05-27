@@ -147,5 +147,5 @@
  </div>
 </div>
 
-<a href='https://intranet.hbtn.io/projects/314> Project Holberton</a> 
+[Project Holberton](https://intranet.hbtn.io/projects/314)
 </html>
